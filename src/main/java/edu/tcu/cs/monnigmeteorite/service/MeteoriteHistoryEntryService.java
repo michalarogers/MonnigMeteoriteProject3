@@ -34,9 +34,8 @@ public class MeteoriteHistoryEntryService {
         return meteoriteHistoryEntryRepository.findAll();
     }
 
-    // In MeteoriteHistoryEntryService
-    public List<MeteoriteHistoryEntry> findHistoryByMeteoriteSampleId(String monnigNumber) {
-        return meteoriteHistoryEntryRepository.findByMonnigNumber(monnigNumber);
+    public List<MeteoriteHistoryEntry> findHistoryByMeteoriteSampleId(Long meteoriteSampleId) {
+        return meteoriteHistoryEntryRepository.findByMeteoriteSampleId(meteoriteSampleId);
     }
 
 }

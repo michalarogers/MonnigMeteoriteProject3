@@ -17,7 +17,11 @@ public class MeteoriteHistoryEntryController {
 
     @GetMapping
     public ResponseEntity<List<MeteoriteHistoryEntry>> getAllHistoryEntries() {
-        return ResponseEntity.ok(service.findAllMeteoriteHistoryEntries());
+        List<MeteoriteHistoryEntry> historyEntries = service.findAllMeteoriteHistoryEntries();
+        if (historyEntries.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(historyEntries);
     }
 
     @GetMapping("/{id}")
@@ -41,14 +45,4 @@ public class MeteoriteHistoryEntryController {
         service.deleteMeteoriteHistoryEntry(id);
         return ResponseEntity.ok().build();
     }
-
-    @GetMapping("/bySample/{monnigNumber}")
-    public ResponseEntity<List<MeteoriteHistoryEntry>> getHistoryByMeteoriteSampleMonnigNumber(@PathVariable String monnigNumber) {
-        List<MeteoriteHistoryEntry> historyEntries = service.findHistoryByMeteoriteSampleId(monnigNumber);
-        if (historyEntries.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(historyEntries);
-    }
-
 }
