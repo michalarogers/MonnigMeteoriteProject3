@@ -19,13 +19,13 @@ public class MeteoriteSampleController {
     public ResponseEntity<List<MeteoriteSample>> searchMeteoriteSamples(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String classType,
-            @RequestParam(required = false) String group,
+            @RequestParam(required = false) String meteoriteGroup,
             @RequestParam(required = false) String country,
             @RequestParam(required = false) String foundOrFall,
             @RequestParam(defaultValue = "name") String sortProperty, // default sort by name
             @RequestParam(defaultValue = "false") boolean desc // default sort ascending
     ) {
-        List<MeteoriteSample> results = service.searchSamples(name, classType, group, country, foundOrFall, sortProperty, desc);
+        List<MeteoriteSample> results = service.searchSamples(name, classType, meteoriteGroup, country, foundOrFall, sortProperty, desc);
         return ResponseEntity.ok(results);
     }
 
@@ -34,6 +34,7 @@ public class MeteoriteSampleController {
         return ResponseEntity.ok(service.findAllMeteoriteSamples());
     }
 
+    //Changing the id to int
     @GetMapping("/{id}")
     public ResponseEntity<MeteoriteSample> getMeteoriteSampleById(@PathVariable String id) {
         MeteoriteSample sample = service.findMeteoriteSampleById(id);
@@ -65,15 +66,23 @@ public class MeteoriteSampleController {
         }
     }
 
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<?> deleteMeteoriteSample(@PathVariable String id) {
+//        try {
+//            service.deleteMeteoriteSample(id);
+//            return ResponseEntity.ok().build();  // Respond with 200 OK on successful deletion
+//        } catch (IllegalArgumentException e) {
+//            return ResponseEntity.badRequest().body(e.getMessage());  // Respond with error message if sample not found
+//        }
+//    }
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteMeteoriteSample(@PathVariable String id) {
+    public ResponseEntity<String> deleteMeteoriteSample(@PathVariable String id) {
         try {
             service.deleteMeteoriteSample(id);
-            return ResponseEntity.ok().build();  // Respond with 200 OK on successful deletion
+            return ResponseEntity.ok("Sample with ID " + id + " has been successfully soft-deleted.");  // Respond with success message
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());  // Respond with error message if sample not found
         }
     }
-
 
 }

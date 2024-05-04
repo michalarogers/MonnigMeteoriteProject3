@@ -3,14 +3,16 @@ package edu.tcu.cs.monnigmeteorite.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "meteorite_samples")
+//@Table(name = "meteorite_samples")
 public class MeteoriteSample {
     @Id
     private String monnigNumber; // Unique identifier for the meteorite sample
     private String name;
     private String classType;
-    @Column(name = "\"group\"")
-    private String group;
+
+    //RENAMED group to meteoriteGroup because it had issues
+//    @Column(name = "\"group\"")
+    private String meteoriteGroup;
     private String clan;
     private String country;
     private String location;
@@ -70,14 +72,14 @@ public class MeteoriteSample {
         this.classType = classType;
     }
 
-    public String getGroup() {
+    public String getMeteoriteGroup() {
 
-        return group;
+        return meteoriteGroup;
     }
 
-    public void setGroup(String group) {
+    public void setMeteoriteGroup(String group) {
 
-        this.group = group;
+        this.meteoriteGroup = group;
     }
 
     public String getClan() {

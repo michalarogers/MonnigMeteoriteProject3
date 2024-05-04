@@ -72,7 +72,7 @@ public class DBDataIntializer implements CommandLineRunner {
         m1.setMonnigNumber("M2142.1");
         m1.setCountry("Algeria");
         m1.setClassType("Ordinary Chondrite");
-        m1.setGroup("H");
+        m1.setMeteoriteGroup("H");
         m1.setYearFound(2002);
         m1.setSampleWeight(5.9);
 
@@ -81,7 +81,7 @@ public class DBDataIntializer implements CommandLineRunner {
         m2.setMonnigNumber("M2143.1");
         m2.setCountry("Algeria");
         m2.setClassType("Ordinary Chondrite");
-        m2.setGroup("H");
+        m2.setMeteoriteGroup("H");
         m2.setYearFound(2002);
         m2.setSampleWeight(4.2);
 
@@ -90,14 +90,13 @@ public class DBDataIntializer implements CommandLineRunner {
         m3.setMonnigNumber("M2145.1");
         m3.setCountry("Algeria");
         m3.setClassType("Ordinary Chondrite");
-        m3.setGroup("H");
+        m3.setMeteoriteGroup("H");
         m3.setYearFound(2002);
         m3.setSampleWeight(5.3);
 
         meteoriteSampleRepository.save(m1);
         meteoriteSampleRepository.save(m2);
         meteoriteSampleRepository.save(m3);
-
 
     }
 }

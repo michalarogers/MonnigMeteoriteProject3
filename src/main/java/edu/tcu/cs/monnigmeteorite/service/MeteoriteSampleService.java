@@ -16,21 +16,11 @@ public class MeteoriteSampleService {
     @Autowired
     private MeteoriteSampleRepository meteoriteSampleRepository;
 
-    public List<MeteoriteSample> searchSamples(String name, String classType, String group, String country, String foundOrFall, String sortProperty, boolean desc) {
-        Specification<MeteoriteSample> spec = MeteoriteSampleSpecifications.findByCriteria(name, classType, group, country, foundOrFall);
+    public List<MeteoriteSample> searchSamples(String name, String classType, String meteoriteGroup, String country, String foundOrFall, String sortProperty, boolean desc) {
+        Specification<MeteoriteSample> spec = MeteoriteSampleSpecifications.findByCriteria(name, classType, meteoriteGroup, country, foundOrFall);
         Sort sort = desc ? Sort.by(sortProperty).descending() : Sort.by(sortProperty).ascending();
         return meteoriteSampleRepository.findAll(spec, sort);
     }
-
-
-    public MeteoriteSample updateMeteoriteSample(MeteoriteSample sample) {
-        if (sample.getMonnigNumber() == null || !meteoriteSampleRepository.existsById(sample.getMonnigNumber())) {
-            throw new IllegalArgumentException("Meteorite Sample with ID: " + sample.getMonnigNumber() + " does not exist.");
-        }
-        // Additional validations can be added here
-        return meteoriteSampleRepository.save(sample);
-    }
-
 
     public MeteoriteSample findMeteoriteSampleById(String id) {
         return meteoriteSampleRepository.findById(id)
@@ -45,6 +35,13 @@ public class MeteoriteSampleService {
         return meteoriteSampleRepository.save(sample);
     }
 
+    public MeteoriteSample updateMeteoriteSample(MeteoriteSample sample) {
+        if (sample.getMonnigNumber() == null || !meteoriteSampleRepository.existsById(sample.getMonnigNumber())) {
+            throw new IllegalArgumentException("Meteorite Sample with ID: " + sample.getMonnigNumber() + " does not exist.");
+        }
+        // Additional validations can be added here
+        return meteoriteSampleRepository.save(sample);
+    }
 
     public void deleteMeteoriteSample(String id) {
         MeteoriteSample sample = meteoriteSampleRepository.findById(id)

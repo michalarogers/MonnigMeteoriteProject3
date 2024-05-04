@@ -5,7 +5,6 @@ import edu.tcu.cs.monnigmeteorite.system.LoansNotFoundException;
 import edu.tcu.cs.monnigmeteorite.model.Loans;
 import edu.tcu.cs.monnigmeteorite.repository.LoansRepository;
 import jakarta.transaction.Transactional;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
