@@ -1,5 +1,6 @@
 package edu.tcu.cs.monnigmeteorite.system;
 
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -13,5 +14,4 @@ public class ExceptionHandlerAdvice {
     Result handleLoansNotFoundException(LoansNotFoundException ex) {
         return new Result(false, StatusCode.NOT_FOUND, ex.getMessage());
     }
-
 }
