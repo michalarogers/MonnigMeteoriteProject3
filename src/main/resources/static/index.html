@@ -2,20 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Meteorite Sample Search</title>
+    <title>TCU Monnig Meteorite Collection</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Search Meteorite Samples</h1>
-<form id="searchForm">
-    <input type="text" id="name" placeholder="Name">
-    <input type="text" id="classType" placeholder="Class Type">
-    <input type="text" id="group" placeholder="Group">
-    <input type="text" id="country" placeholder="Country">
-    <button type="submit">Search</button>
-</form>
-<div id="results"></div>
+<div class="container">
+    <h1>TCU Monnig Meteorite Collection</h1>
+    <p class="intro">COME VISIT AND TOUCH A PIECE OF MARS!
+        At the Monnig Meteorite Gallery, you can experience pieces of the Solar System up close and explore the mysteries of meteorites! Meteorites are the oldest materials known — older than any rock formed on Earth! Learn how to identify a meteorite, enjoy a hands-on encounter with different types of meteorites, and create your own terrestrial impact crater. For an “out-of-this-world” experience, bring your friends and family to get acquainted with our spectacular visitors from space.</p>
 
+    <form id="searchForm" class="form-style">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="monnigNumber" placeholder="Monnig Number">
+        <input type="text" id="country" placeholder="Country">
+        <input type="text" id="classType" placeholder="Class Type">
+        <input type="text" id="group" placeholder="Group">
+        <input type="text" id="yearFound" placeholder="Year Found">
+        <input type="text" id="sampleWeight" placeholder="Sample Weight (g)">
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="results"></div>
+
+    <form id="createSubsampleForm" class="form-style">
+        <input type="text" id="parentSampleId" placeholder="Parent Sample ID">
+        <input type="text" id="subsampleWeight" placeholder="Subsample Weight (g)">
+        <button type="submit">Create Subsample</button>
+    </form>
+
+    <form id="viewRelatedSamplesForm" class="form-style">
+        <input type="text" id="sampleId" placeholder="Meteorite Sample ID">
+        <button type="submit">View Related Samples</button>
+    </form>
+
+    <div class="history-loan">
+        <button id="viewHistoryButton">View History</button>
+        <input type="text" id="historySampleId" placeholder="Sample ID for History">
+    </div>
+
+    <form id="loanForm" class="form-style">
+        <input type="text" id="loanSampleId" placeholder="Sample ID">
+        <button type="submit" id="createLoan">Create Loan</button>
+        <button type="submit" id="modifyLoan">Modify Loan</button>
+    </form>
+    <div class="history-loan">
+        <button id="archiveLoan">Archive Loan</button>
+        <input type="text" id="loanId" placeholder="Loan ID to Archive">
+    </div>
+</div>
 <script src="js/app.js"></script>
 </body>
 </html>

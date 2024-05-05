@@ -1,17 +1,72 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     padding: 20px;
     line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #4e196b; /* Header color updated to deep purple */
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-style {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 input[type="text"], button {
-    margin: 10px;
-    padding: 8px;
+    margin: 10px 0;
+    padding: 10px;
     font-size: 16px;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4e196b; /* Deep purple background */
+    color: white; /* White text */
+    border: none;
+    cursor: pointer;
+    height: 45px;
+}
+
+button:hover {
+    background-color: #3a1452; /* Slightly darker purple on hover */
+}
+
+.history-loan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 }
 
 #results {
     margin-top: 20px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #eee;
 }
 
 .result-item {
@@ -19,5 +74,5 @@ input[type="text"], button {
     border: 1px solid #ddd;
     margin-top: 10px;
     padding: 8px;
-    width: 300px;
+    width: 100%;
 }
